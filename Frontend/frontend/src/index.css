@@ -1,11 +1,12 @@
+/* ==== GLOBAL BASE STYLES ==== */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(18, 16, 16, 0.87);
+  background-color: #f6f3f3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,28 +14,48 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* ==== LAYOUT ==== */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fefcfc;
 }
 
+/* ==== MAIN CONTAINER ==== */
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==== CHAT-LIKE CARDS ==== */
+.card {
+  width: 100%;
+  background: #2a2a2a;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==== HEADINGS ==== */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #161010;
+  text-align: center;
 }
 
+/* ==== BUTTON ==== */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -42,27 +63,93 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #343541;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.3s ease, border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #444654;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* ==== INPUT / TEXTAREA ==== */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #40414f;
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #b5b5b5;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #10a37f;
+  background-color: #444654;
+}
+
+/* ==== LINKS ==== */
+a {
+  font-weight: 500;
+  color: #10a37f;
+  text-decoration: none;
+}
+a:hover {
+  color: #1cb58f;
+}
+
+/* ==== LIGHT MODE OVERRIDE ==== */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #1f1f1f;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
+  body {
+    background-color: #f8f8f8;
+  }
+  #root {
+    background-color: #ffffff;
+  }
+  .card {
+    background: #f1f1f1;
+    color: #1f1f1f;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #e6e6e6;
+    color: #1f1f1f;
+  }
+  button:hover {
+    background-color: #d4d4d4;
+  }
+  input,
+  textarea,
+  select {
+    background-color: #f4f4f4;
+    color: #1f1f1f;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #666;
+  }
+}
+@media print {
+  table,
+  th,
+  td {
+    background-color: white !important;
+    color: black !important;
   }
 }
