@@ -1,0 +1,1 @@
+# Greddy_pattern
