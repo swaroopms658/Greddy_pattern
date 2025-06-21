@@ -175,25 +175,28 @@ function App() {
               Case Sensitive
             </div>
 
-            {/* Checkbox on its own line */}
-            <label className="flex items-center gap-2 text-white text-sm w-full">
+            {/* Checkbox on its own line, styled like a pro */}
+            <label className="flex items-center gap-3 w-full mb-4 p-3 bg-gray-800 rounded-lg shadow border border-gray-700 transition hover:border-emerald-400">
               <input
                 type="checkbox"
                 id="caseSensitive"
                 checked={caseSensitive}
                 onChange={() => setCaseSensitive(!caseSensitive)}
-                className="accent-emerald-500 w-4 h-4"
+                className="accent-emerald-500 w-5 h-5 transition-all duration-200 focus:ring-2 focus:ring-emerald-400"
               />
-              Case Sensitive
+              <span className="text-white text-base font-medium select-none">
+                Case Sensitive
+              </span>
             </label>
-
-            {/* Submit button on next line */}
-            <button
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl transition box-border font-semibold"
-              onClick={handleSubmit}
-            >
-              Match Patterns
-            </button>
+            {/* Button in its own block below the checkbox, styled */}
+            <div className="w-full flex justify-center">
+              <button
+                className="w-full max-w-xs bg-gradient-to-r from-blue-500 to-emerald-400 hover:from-blue-600 hover:to-emerald-500 text-white px-8 py-3 rounded-2xl shadow-lg font-bold text-lg tracking-wide transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 mt-4"
+                onClick={handleSubmit}
+              >
+                Match Patterns
+              </button>
+            </div>
           </div>
         </section>
 
