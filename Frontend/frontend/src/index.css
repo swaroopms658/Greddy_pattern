@@ -1,104 +1,270 @@
 /* ==== GLOBAL BASE STYLES ==== */
 :root {
-  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(18, 16, 16, 0.87);
-  background-color: #f6f3f3;
-
+  color: #23272f;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==== LAYOUT ==== */
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #fefcfc;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+  transition: background 0.5s;
 }
 
-/* ==== MAIN CONTAINER ==== */
 #root {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2rem;
-  max-width: 720px;
-  margin: 0 auto;
+  padding: 2.5rem 1rem 2rem 1rem;
+  max-width: 900px;
+  margin: 2rem auto;
   width: 100%;
+  background: rgba(255,255,255,0.85);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}
+
+/* ==== HEADER ==== */
+.header {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #6366f1 0%, #10a37f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
 /* ==== CHAT-LIKE CARDS ==== */
 .card {
   width: 100%;
-  background: #2a2a2a;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  color: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(120deg, #6366f1 0%, #10a37f 100%);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.7s cubic-bezier(.39,.575,.56,1.000) both;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* ==== HEADINGS ==== */
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #161010;
-  text-align: center;
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== FORM STYLES ==== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-size: 1.08em;
+  font-weight: 500;
+  color: #23272f;
+  margin-bottom: 0.2em;
+  letter-spacing: 0.2px;
+}
+
+/* ==== INPUT / TEXTAREA / SELECT ==== */
+input, textarea, select {
+  width: 100%;
+  padding: 1.1rem;
+  border-radius: 1rem;
+  border: 1.5px solid #e0e7ff;
+  background: #f4f7fa;
+  color: #23272f;
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border: 2px solid #10a37f;
+  background: #e0e7ff;
+  box-shadow: 0 4px 16px rgba(16,163,127,0.10);
+}
+input::placeholder, textarea::placeholder {
+  color: #a0aec0;
+}
+
+/* Modern checkbox styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 1.2rem;
+}
+input[type="checkbox"] {
+  accent-color: #10a37f;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.3em;
+  margin: 0 0.5em 0 0;
+  box-shadow: none;
 }
 
 /* ==== BUTTON ==== */
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+button, .download-btn {
+  border-radius: 2rem;
+  border: none;
+  padding: 0.9em 2.2em;
+  font-size: 1.13em;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #343541;
-  color: white;
+  background: linear-gradient(90deg, #6366f1 0%, #10a37f 100%);
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.25s;
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.13);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-width: 180px;
+  display: inline-block;
 }
-button:hover {
-  background-color: #444654;
+button:hover, .download-btn:hover {
+  background: linear-gradient(90deg, #10a37f 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.13);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus, .download-btn:focus {
+  outline: 3px solid #6366f1;
 }
 
-/* ==== INPUT / TEXTAREA ==== */
-input,
-textarea,
+/* Custom select styling */
 select {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: #40414f;
-  color: white;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%2310a37f" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 1.2em;
+}
+
+/* ==== TAG INPUTS ==== */
+.pattern-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
-input::placeholder,
-textarea::placeholder {
-  color: #b5b5b5;
+.pattern-tag {
+  background: #10a37f;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 0.4em 1em;
+  font-size: 0.98em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  box-shadow: 0 1px 4px rgba(16,163,127,0.10);
+  animation: fadeInUp 0.5s;
 }
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 2px solid #10a37f;
-  background-color: #444654;
+.pattern-tag .remove {
+  margin-left: 0.5em;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 1.1em;
+}
+
+/* ==== ALGORITHMS PILL SELECTORS ==== */
+.algorithms {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.algorithm-pill {
+  padding: 0.7em 1.5em;
+  border-radius: 2em;
+  border: 2px solid #6366f1;
+  background: #fff;
+  color: #6366f1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  font-size: 1.05em;
+}
+.algorithm-pill.selected, .algorithm-pill:hover {
+  background: linear-gradient(90deg, #6366f1 0%, #10a37f 100%);
+  color: #fff;
+  border: 2px solid #10a37f;
+}
+
+/* ==== RESULTS TABLE ==== */
+.results-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  margin-top: 1.5rem;
+  background: none;
+}
+.results-table th, .results-table td {
+  padding: 1rem 1.2rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(99,102,241,0.06);
+  font-size: 1.08em;
+}
+.results-table th {
+  background: #6366f1;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.results-table .fastest {
+  background: linear-gradient(90deg, #10a37f 0%, #6366f1 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.13);
+}
+
+/* ==== DOWNLOAD BUTTON ==== */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: linear-gradient(90deg, #10a37f 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em 1.7em;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.10);
+  transition: background 0.3s, transform 0.2s;
+}
+.download-btn:hover {
+  background: linear-gradient(90deg, #6366f1 0%, #10a37f 100%);
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* ==== LINKS ==== */
@@ -106,49 +272,84 @@ a {
   font-weight: 500;
   color: #10a37f;
   text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
-  color: #1cb58f;
+  color: #6366f1;
+}
+
+/* ==== CHART AREA ==== */
+.chart-area {
+  width: 100%;
+  min-height: 260px;
+  margin: 2rem 0 1rem 0;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 8px rgba(99,102,241,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
 /* ==== LIGHT MODE OVERRIDE ==== */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #1f1f1f;
-    background-color: #ffffff;
+    color: #23272f;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   }
   body {
-    background-color: #f8f8f8;
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
   }
   #root {
-    background-color: #ffffff;
+    background: rgba(255,255,255,0.95);
   }
   .card {
-    background: #f1f1f1;
-    color: #1f1f1f;
+    background: linear-gradient(120deg, #6366f1 0%, #10a37f 100%);
+    color: #fff;
   }
-  button {
-    background-color: #e6e6e6;
-    color: #1f1f1f;
+  button, .download-btn {
+    background: linear-gradient(90deg, #6366f1 0%, #10a37f 100%);
+    color: #fff;
   }
-  button:hover {
-    background-color: #d4d4d4;
+  button:hover, .download-btn:hover {
+    background: linear-gradient(90deg, #10a37f 0%, #6366f1 100%);
   }
-  input,
-  textarea,
-  select {
-    background-color: #f4f4f4;
-    color: #1f1f1f;
+  input, textarea, select {
+    background: #f4f7fa;
+    color: #23272f;
   }
-  input::placeholder,
-  textarea::placeholder {
-    color: #666;
+  input::placeholder, textarea::placeholder {
+    color: #a0aec0;
   }
 }
+
+@media (max-width: 600px) {
+  #root, .card {
+    padding: 1.2rem 0.5rem;
+    max-width: 100vw;
+    border-radius: 0.7rem;
+  }
+  .header {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+  }
+  .results-table th, .results-table td {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.98em;
+  }
+  .download-btn, button {
+    min-width: 120px;
+    font-size: 1em;
+    padding: 0.7em 1.1em;
+  }
+}
+
+/* ==== PRINT STYLES ==== */
 @media print {
-  table,
-  th,
-  td {
+  table, th, td {
     background-color: white !important;
     color: black !important;
   }
