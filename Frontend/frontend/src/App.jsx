@@ -51,7 +51,7 @@ function App() {
   const fetchResults = async (selectedAlgorithm) => {
     if (!text || patterns.every((p) => p.trim() === "")) return;
     try {
-      const response = await axios.post("https://greddy-pattern1.onrender.com:8000/match", {
+      const response = await axios.post("http://localhost:8000/match", {
         text,
         patterns,
         algorithm: selectedAlgorithm,
